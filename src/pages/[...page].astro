@@ -1,0 +1,259 @@
+---
+import Layout from "../Layouts/Layout.astro"
+import type { GetStaticPaths } from "astro"
+import "../css/estilo.css"
+
+export const getStaticPaths = (({ paginate }) => {
+  const quiz = [
+    {
+      pergunta:
+        "O fato do nome do partido de Adolf Hitler ser 'Partido Nacional-Socialista dos Trabalhadores Alemães' significa que ele era de esquerda?",
+      respostas: [
+        "Sim, porque o partido defendia políticas socialistas.",
+        "Não, pois o sentido de 'socialista' usado pelos nazistas era diferente do cunhado por Marx e Engels, não refletindo, assim, a ideologia nazi",
+        "Sim, pois o socialismo é uma característica da esquerda. ",
+        "d) Não, porque o partido tinha políticas econômicas de esquerda, mas sociais de direita. ",
+        'e) Sim, uma vez que o termo "trabalhadores" é associado à esquerda.',
+      ],
+      resposta: `<strong>Resposta:</strong> NÃO. Para Hitler e seus partidários, 'socialismo' significa sociedade alemã. Além disso, o nome do partido também é contraditório se considerarmos o socialismo marxista, uma vez que esse é <strong>internacionalista</strong>`,
+      correta: 1,
+    },
+    {
+      pergunta:
+        "O fascismo, geralmente, ganha força em um contexto muito específico, o de: ",
+      respostas: [
+        "Estabilidade econômica e prosperidade. ",
+        "Democracias consolidadas e pacíficas.",
+        "Crise econômica e insegurança social",
+        "Períodos de alta imigração e diversidade cultural.",
+        "Desenvolvimento tecnológico e avanços científicos."
+      ],
+      resposta:
+        "O fascimso usa bodes espiatórios e soluções simplistas para problemas complexos como uma forma de 'solucionar' as crises vividas. O exemplo mais célebre é o dos nazistas, que colocavam a culpa dos problemas alemães nos políticos, comunistas, judeus e outros segmentos da sociedade consideros por eles 'traidores pátria'.",
+      correta: 2,
+    },
+    {
+      pergunta:
+        "Um típico líder fascista possui várias características, excluindo: ",
+      respostas: [
+        "Carisma e habilidade oratória",
+        "Nacionalismo exacerbado",
+        "Respeito aos direitos humanos",
+        "Culto à personalidade",
+        "Uso da propaganda para manipulação"
+      ],
+      resposta: "Líderes fascistas são conhecidos por seu desprezo pelos direitos humanos, promovendo a repressão política, a censura e a violência contra opositores. Eles buscam o controle total sobre o Estado e a sociedade, frequentemente violando direitos fundamentais para manter seu poder.",
+      correta: 2,
+    },
+    {
+      pergunta:
+      'Qual parte da sociedade, receosa de uma “ameaça” comunista, sempre acaba apoiando os fascistas:' ,
+      respostas: [
+        "Trabalhadores",
+        "Artistas",
+        "Grandes empresários e proprietários de terras",
+        "Intelectuais liberais"
+      ],
+      resposta:
+        "Grandes empresários e proprietários de terras frequentemente apoiam movimentos fascistas porque temem a expropriação de suas propriedades e a perda de poder econômico sob regimes comunistas. O fascismo, apesar de ser autoritário, protege os interesses da elite econômica ",
+      correta: 2,
+    },
+    {
+      pergunta: "São principíos fascistas, exceto:",
+      respostas: [
+        "Anticomunismo",
+        "Nacionalismo",
+        "Liberalismo econômico",
+        "Autoritarismo",
+        "Militarismo",
+      ],
+      resposta: `Fascistas são capitalistas, no entanto defendem a intervenção do Estado da ecnonimia. Lembre-se: <strong>capitalismo não significa necessariamente liberalismo</strong>.`,
+      correta: 2,
+    },
+    {
+      pergunta:
+        "Por que a Itália, vencedora da Primeira Guerra Mundial, viu o fascismo tomar conta do país?",
+      respostas: [
+        "Devido ao sucesso econômico pós-guerra.",
+        "Devido à influência da União Soviética.",
+        "Por uma forte tradição democrática.",
+        'Por causa do descontentamento com os tratados de paz ("paz mutilada") e crise econômica',
+      ],
+      resposta:
+        "O país se viu frustrado nas intenções de receber indenizações e grandes lotes territoriais após a decisão de se aliar ao vencedores. A grande crise econômica posterior, as desigualdades regionais e a existência de um operariado forte e uma esquerda articulada explica o surgimento do fascismo na Itália. De fato, ante a possibilidade de um crescimento das esquerdas, os banqueiros passaram a financiar grupos paramilitares de extermínio, como o Fasci de Combattimento, liderado por Mussolini.",
+      correta: 3,
+    },
+    {
+      pergunta:
+        "Apesar da morte de Mussolini e Hitler e o consequente fim da Itália fascista e do terceiro Reich, em 1945, muitos regimes fascistas seguiram e surgiram após a Segunda Guerra Mundial, com exceção de:",
+      respostas: [
+        "Chile de Augusto Pinochet",
+        "Estado Novo portugês",
+        "Espanha de Francisco Franco",
+        "Coreia do Norte",
+      ],
+      resposta: "A Coreia do Norte é um estado baseado no socialismo.",
+      correta: 3,
+    },
+    {
+      pergunta:
+        "Qual a principal diferença entre o fascismo italiano e o alemão?",
+      respostas: [
+        "Os alemães defendiam uma política econômica liberal, enquanto os italianos a intervenção do Estado na economia",
+        "Os italianos buscavam a expensão de seu território, como forma de 'reviver' o antigo Imprério Romano. Já os alemães, não tinham ambições expansionistas.",
+        "Os italianos não tinham o antissemitismo como base de sua ideologia.",
+        "O fascismo italiano surgiu antes da Primeira Guerra Mundial, enquanto o alemão apareceu após a Segunda Guerra Mundial"
+      ],
+      resposta: "Ainda que, alguns membros do partido pudessem ser eventualmente antissemitas, essa não era a ideologia do fascismo italiano, ao contrátio do Alemão",
+      correta: 2,
+    },
+    {
+      pergunta:
+        'O Tratado de Versalhes era muito claro em relação às proibições impostas naquele momento à Alemanha, como limite da capacidade bélica e pagamento de gigantescas dívidas. No entanto, ao assumir o poder do país, Hitler, à medida que passavam os anos, desobedecia-os cada vez mais. Potências europeias vencedoras da Grande Guerra, como França e Reino Unido, por suas vez, pareciam fazer "vista grossa" para isso. Por qual razão isso ocorria?',
+      respostas: [
+        "Porque essas potências estavam economicamente debilitadas e não tinham capacidade de intervir.",
+        "Porque acreditavam que Hitler traria estabilidade à região.",
+        "Porque secretamente apoiavam o regime nazista",
+        "No entreguerras, predominou uma 'política de apaziguamento', em que essas potências tentavam evitar uma nova guerra, ainda que isso significasse negligenciar os desmandos dos gêrmanicos.",
+      ],
+      resposta:
+        "Além de, motivados pelo trauma da Primeira Guerra, quererem evitar novos conflitos similares, eles acreditavam que, deixando a Alemanha mais forte em aspecto bélico, ela iria atacar a União Soviética, algo desejado por eles.",
+      correta: 3,
+    },
+  ]
+
+  return paginate(quiz, { pageSize: 1 })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+
+const [quiz] = page.data
+---
+
+<Layout pagina={page.currentPage}>
+  <div id="acertos-div">
+    <strong id="acertos">Acertos</strong>
+    <span>0 de 10</span>
+  </div>
+
+  <main>
+      <div id="porcentagem-acertos" class="hidden">
+        </button>
+        <p>Você acertou <span id="porcentagem"></span>% das questões!</p>
+      </div>
+
+      <button type="button" id="reiniciar" class="hidden">Reiniciar jogo</button>
+
+    <div class="hidden" id="resposta"></div>
+
+    <div id="quiz">
+      <div class="quiz-item">
+        <h3 data-id={page.currentPage}>{quiz.pergunta}</h3>
+        <dl>
+          {
+            quiz.respostas.map((r, rid: any) => (
+              <dt class="alternativa">
+                <input type="radio" name="item" value={rid} id={rid} />
+                <label for={rid}> {r} </label>
+              </dt>
+            ))
+          }
+        </dl>
+        <div>
+          <button type="button" id="responder">Responder</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation">
+      {
+        page.url.prev && (
+          <a class="prev" href={page.url.prev}>
+            Anterior
+          </a>
+        )
+      }
+      {
+        page.url.next && (
+          <a class="next hidden" id="next" href={page.url.next}>
+            Próximo
+          </a>
+        )
+      }
+    </div>
+  </main>
+</Layout>
+
+<script define:vars={{ quiz, page }}>
+  const valores = JSON.parse(localStorage.getItem("quiz::valores")) || {}
+  const responder = document.querySelector("#responder")
+  const reiniciar = document.querySelector("#reiniciar")
+
+  let selected
+  const count = () =>
+    Object.keys(valores).filter((chave) => valores[chave].correto).length
+
+  if (valores[page.currentPage]) {
+    selected = valores[page.currentPage].selecionado
+  }
+
+  const total = document.querySelector("#acertos-div span")
+  total.textContent = `${count()} de 10`
+
+  const inputs = document.querySelectorAll("input")
+
+  for (let input of inputs) {
+    const dt = document.querySelector("dt .alternativa")
+
+    input.checked = input.value == selected ? 1 : 0
+
+    input.addEventListener("change", (e) => {
+      valores[page.currentPage] = {
+        selecionado: e.target.value,
+        correto: e.target.value == quiz.correta,
+      }
+
+      localStorage.setItem("quiz::valores", JSON.stringify(valores))
+    })
+  }
+
+  responder.addEventListener("click", () => {
+    const next = document.querySelector("#next")
+
+    const resposta = document.querySelector("#resposta")
+    resposta.classList.remove("hidden")
+    resposta.innerHTML = quiz.resposta
+    if (next) next.classList.remove("hidden")
+
+    const respostaInput = valores[page.currentPage]
+    if (respostaInput) respostaInput.correto ? alert("Resposta correta") : alert("Resposta errada")
+    else alert("Por favor, selecione uma resposta.")
+
+    responder.disabled = true
+
+    if (!page.url.next) {
+      const totalPerguntas = Object.keys(valores).length
+      const acertos = Object.values(valores).filter(
+        (valor) => valor.correto
+      ).length
+
+      const porcentagemAcertos = document.querySelector(
+        "#porcentagem-acertos"
+      )
+      porcentagemAcertos.classList.remove("hidden")
+      const percentualAcertos = (acertos / totalPerguntas) * 100
+      const porcentagem = document.querySelector("#porcentagem")
+      porcentagem.innerHTML = percentualAcertos.toFixed(2)
+      reiniciar.classList.remove('hidden')
+
+      document.querySelector("#close-btn").addEventListener("click", () => {
+        porcentagemAcertosContainer.classList.add("hidden")
+      })
+    }
+  })
+
+  reiniciar.addEventListener("click", () => {
+  localStorage.removeItem("quiz::valores")
+  location.reload()
+})
+</script>
